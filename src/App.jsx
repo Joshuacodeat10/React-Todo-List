@@ -4,15 +4,18 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import TodoItem from './components/Todoitem/TodoItem'
 import TodoInput from './components/TodoInput/TodoInput'
+import TodoList from './components/TodoList/TodoList'
 export default function App() {
   
   const [todoList, setTodoList] = useState([])
+  let todoId = 1;
   function addTodo(event){
-    let TodoNumber = 1;
+    
     event.preventDefault();
     console.log()
     const newTodo = {
-      todoTitle: TodoNumber + 1,
+      todoId: todoId + 1,
+      todoTitle: 'nnn',
       todoBody:'nnnn',
       todoStatus:'nnnn',
     }
@@ -22,7 +25,8 @@ export default function App() {
   return (
     <>
       <TodoInput onSubmit={addTodo}/>
-      
+      <TodoList list={todoList} key={todoId}/>
+      <h1>{todoId}ssss</h1>
     </>
   )
 }
