@@ -7,26 +7,41 @@ import TodoInput from './components/TodoInput/TodoInput'
 import TodoList from './components/TodoList/TodoList'
 export default function App() {
   
-  const [todoList, setTodoList] = useState([])
-  let todoId = 1;
-  function addTodo(event){
+  const [todoList, setTodoList] = useState([{
+    todoId:  1,
+    todoTitle: 'nnn',
+    todoBody:'nnnn', 
+    todoStatus:true,
+  },{
+    todoId:  2,
+    todoTitle: 'nnn',
+    todoBody:'nnnn', 
+    todoStatus:true,
+  }])
+  // let todoId = 1;
+  // function addTodo(event){
     
-    event.preventDefault();
-    console.log()
-    const newTodo = {
-      todoId: todoId + 1,
-      todoTitle: 'nnn',
-      todoBody:'nnnn',
-      todoStatus:'nnnn',
-    }
-    console.log('boaou')
-    setTodoList(c => [...c, newTodo])
-  }
+  //   event.preventDefault();
+  //   console.log()
+  //   const newTodo = {
+  //     todoId: todoId + 1,
+  //     todoTitle: 'nnn',
+  //     todoBody:'nnnn', 
+  //     todoStatus:true,
+  //   }
+  //   console.log(todoList.todoId)
+  //   setTodoList(c => [...c, newTodo])
+    
+  //   return newTodo;
+    
+  // }
+ 
   return (
     <>
-      <TodoInput onSubmit={addTodo}/>
-      <TodoList list={todoList} key={todoId}/>
-      <h1>{todoId}ssss</h1>
+      {/* <TodoInput onSubmit={addTodo}/> */}
+      <TodoList list={todoList}  />
+      <h1>{todoList.todoId}ssss</h1>
+    
     </>
   )
 }

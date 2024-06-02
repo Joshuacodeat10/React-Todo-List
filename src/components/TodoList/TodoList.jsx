@@ -1,11 +1,11 @@
 import TodoItem from "../Todoitem/TodoItem"
 export default function TodoList({list, key,itemTitle, itemBody, itemStatus}){
   return(
-    <div list={list}>
+    <div list={list} >
     {
-    list.map(() => 
+    list.map((item) => 
     <div key={key}>
-        <TodoItem itemTitle={itemTitle} itemBody={itemBody} itemStatus={itemStatus}/>
+        <TodoItem itemTitle={item.todoTitle} itemBody={item.todoBody} itemStatus={item.todoStatus}/>
     </div>)
     }
     </div>
