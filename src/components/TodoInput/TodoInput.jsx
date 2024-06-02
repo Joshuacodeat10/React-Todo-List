@@ -1,3 +1,4 @@
+import './todoinput.css'
 export default function TodoInput({value,onChange, ...props }){
     return(
         <div>
