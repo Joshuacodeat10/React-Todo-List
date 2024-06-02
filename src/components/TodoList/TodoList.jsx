@@ -5,7 +5,7 @@ export default function TodoList({list, key,itemTitle, itemBody, itemStatus}){
     {
     list.map((item) => 
     <div key={item.todoId}>
-        <TodoItem itemTitle={item.todoTitle} itemBody={item.todoBody} itemStatus={item.todoStatus}/>
+        <TodoItem itemNumber={item.todoId} itemTitle={item.todoTitle} itemStatus={item.todoStatus}/>
     </div>)
     }
     </div>

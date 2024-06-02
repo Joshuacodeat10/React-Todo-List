@@ -7,38 +7,38 @@ import TodoInput from './components/TodoInput/TodoInput'
 import TodoList from './components/TodoList/TodoList'
 export default function App() {
   
-  const [todoList, setTodoList] = useState([{
-    todoId:  1,
-    todoTitle: 'nnn',
-    todoBody:'nnnn', 
-    todoStatus:true,
-  },{
-    todoId:  2,
-    todoTitle: 'nnn',
-    todoBody:'nnnn', 
-    todoStatus:true,
-  }])
-  // let todoId = 1;
-  // function addTodo(event){
+  const [todoList, setTodoList] = useState([])
+  const [todoTitle, setTodoTitle] = useState('box')
+  function setTitle(event){
+    setTodoTitle(event.target.value)
+
+    console.log(todoTitle)
+  }
+  function addTodo(event){
     
-  //   event.preventDefault();
-  //   console.log()
-  //   const newTodo = {
-  //     todoId: todoId + 1,
-  //     todoTitle: 'nnn',
-  //     todoBody:'nnnn', 
-  //     todoStatus:true,
-  //   }
-  //   console.log(todoList.todoId)
-  //   setTodoList(c => [...c, newTodo])
+    event.preventDefault();
+    let todoId=0;
+    if(todoList[0] !== undefined){
+      console.log('yeah')
+    // console.log(Object.keys(todoList[0]))
+
+    todoId = todoList.length;
+    console.log(todoId)
+    }
+    // console.log()
+    const newTodo = {
+      todoId:todoId + 1,
+      todoTitle:todoTitle,
+      todoStatus:true,
+    }
+    console.log(todoList.todoId)
     
-  //   return newTodo;
-    
-  // }
+    setTodoList(c => [...c, newTodo])
+  }
  
   return (
     <>
-      {/* <TodoInput onSubmit={addTodo}/> */}
+      <TodoInput onChange={setTitle} value={todoTitle} onSubmit={addTodo}/>
       <TodoList list={todoList}  />
       <h1>{todoList.todoId}ssss</h1>
     

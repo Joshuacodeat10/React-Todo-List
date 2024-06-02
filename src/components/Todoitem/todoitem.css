@@ -1,0 +1,10 @@
+.todo-item{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    padding:0px 20px 0px 20px;
+    gap:20px;
+    border:1px solid black;
+    border-radius: 10px;
+    box-shadow:1px 1px 2px black;
+}
