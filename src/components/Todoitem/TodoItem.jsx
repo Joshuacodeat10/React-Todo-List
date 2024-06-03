@@ -1,6 +1,6 @@
 import './todoitem.css'
 import { useState } from 'react'
-export default function TodoItem({itemNumber,itemTitle,  itemStatus, onClick, editValue}){
+export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, editValue}){
     const [isEditing, setIsEditing] = useState(false)
     function onEdit(){
         setIsEditing(!isEditing)
@@ -15,7 +15,7 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onClick, ed
             {!isEditing && <h2>{itemTitle}</h2>}
             {isEditing && <button onClick={onEdit}>cancel</button>}
             {!isEditing && <button onClick={onEdit}>edit</button>}
-            <button onClick={onClick}>delete</button>
+            <button onClick={onDelete}>delete</button>
             {/* <article>{itemBody}</article> */}
         </div>
         

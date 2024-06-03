@@ -1,7 +1,8 @@
-import TodoItem from "../Todoitem/TodoItem"
+import TodoItem from "../Todoitem/TodoItem";
+import './todolist.css'
 export default function TodoList({list, key,itemTitle, itemBody, itemStatus}){
   return(
-    <div list={list} >
+    <div className='todo-list'list={list} >
     {
     list.map((item) => 
     <div key={item.todoId}>

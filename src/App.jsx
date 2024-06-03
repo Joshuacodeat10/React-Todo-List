@@ -35,7 +35,7 @@ export default function App() {
     
     setTodoList(c => [...c, newTodo])
   }
- 
+  
   return (
     <>
       <TodoInput onChange={setTitle} value={todoTitle} onSubmit={addTodo}/>
