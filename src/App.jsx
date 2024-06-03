@@ -35,11 +35,15 @@ export default function App() {
     
     setTodoList(c => [...c, newTodo])
   }
+
   
+  function getId(id){
+      console.log(id)
+  }
   return (
     <>
       <TodoInput onChange={setTitle} value={todoTitle} onSubmit={addTodo}/>
-      <TodoList list={todoList}  />
+      <TodoList list={todoList} getId={getId} />
       <h1>{todoList.todoId}ssss</h1>
     
     </>
