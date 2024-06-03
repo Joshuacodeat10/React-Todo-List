@@ -43,14 +43,21 @@ export default function App() {
   
   function getId(id){
     alert(id + 'removed')
-   setTodoList(d => d.filter((element, a) => a !== id))
+    setTodoList(d => d.filter((element, a) => a !== id))
     console.log(todoList)
   }
   return (
     <>
       <EditingProvider>
-        <TodoInput onChange={setTitle} value={todoTitle} onSubmit={addTodo}/>
-        <TodoList list={todoList} getId={getId} />
+        <TodoInput 
+          onChange={setTitle} 
+          value={todoTitle} 
+          onSubmit={addTodo}
+        />
+        <TodoList 
+        list={todoList} 
+        getId={getId} 
+        />
         <h1>{todoList.todoId}ssss</h1>
       </EditingProvider>
     </>

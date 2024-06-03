@@ -1,6 +1,6 @@
 import TodoItem from "../Todoitem/TodoItem";
 import './todolist.css'
-export default function TodoList({list, key,itemTitle, itemBody, itemStatus, getId}){
+export default function TodoList({list, key,itemTitle, itemBody, itemStatus, getId, submitEdit}){
     // function delete(){
     //     setCars(c => c.filter((_, i) => i !== index));
     // }
@@ -16,7 +16,13 @@ export default function TodoList({list, key,itemTitle, itemBody, itemStatus, get
     list.map((item, index) => 
     <div key={item.todoId}>
         
-        <TodoItem itemNumber={index + 1}  submitEdit={submitEdit} itemTitle={item.todoTitle} onDelete={()=>{deleteTodo(index)}} onitemStatus={item.todoStatus}/>
+        <TodoItem 
+            itemNumber={index + 1}  
+            submitEdit={submitEdit} 
+            itemTitle={item.todoTitle} 
+            onDelete={()=>{deleteTodo(index)}} 
+            onitemStatus={item.todoStatus}
+        />
     </div>)
     }
     </div>
