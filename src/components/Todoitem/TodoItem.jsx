@@ -11,9 +11,10 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onClick, ed
             
             <p>{itemNumber}</p>
              <input type='checkbox'  defaultChecked={itemStatus}/>
-             {isEditing && <input value={editValue} autoFucos></input>}
+             {isEditing && <input value={editValue} onFucos={isEditing}></input>}
             {!isEditing && <h2>{itemTitle}</h2>}
-            <button onClick={onEdit}>edit</button>
+            {isEditing && <button onClick={onEdit}>cancel</button>}
+            {!isEditing && <button onClick={onEdit}>edit</button>}
             <button onClick={onClick}>delete</button>
             {/* <article>{itemBody}</article> */}
         </div>
