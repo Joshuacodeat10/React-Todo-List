@@ -13,10 +13,10 @@ export default function TodoList({list, key,itemTitle, itemBody, itemStatus, get
   return(
     <div className='todo-list'list={list} >
     {
-    list.map((item) => 
+    list.map((item, index) => 
     <div key={item.todoId}>
         
-        <TodoItem itemNumber={item.todoId} itemTitle={item.todoTitle} onDelete={()=>{deleteTodo(item.todoId)}} onitemStatus={item.todoStatus}/>
+        <TodoItem itemNumber={index + 1} itemTitle={item.todoTitle} onDelete={()=>{deleteTodo(index)}} onitemStatus={item.todoStatus}/>
     </div>)
     }
     </div>

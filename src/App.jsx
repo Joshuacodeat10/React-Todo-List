@@ -38,7 +38,9 @@ export default function App() {
 
   
   function getId(id){
-      console.log(id)
+    alert(id + 'removed')
+   setTodoList(d => d.filter((element, a) => a !== id))
+    console.log(todoList)
   }
   return (
     <>
