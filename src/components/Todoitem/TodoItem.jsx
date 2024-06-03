@@ -1,11 +1,18 @@
 import './todoitem.css'
-export default function TodoItem({itemNumber,itemTitle,  itemStatus, onClick, onEdit }){
+import { useState } from 'react'
+export default function TodoItem({itemNumber,itemTitle,  itemStatus, onClick, editValue}){
+    const [isEditing, setIsEditing] = useState(false)
+    function onEdit(){
+        setIsEditing(!isEditing)
+    }
     return(
         <div className="todo-item">
             {/* gi */}
+            
             <p>{itemNumber}</p>
              <input type='checkbox'  defaultChecked={itemStatus}/>
-            <h2>{itemTitle}</h2>
+             {isEditing && <input value={editValue} autoFucos></input>}
+            {!isEditing && <h2>{itemTitle}</h2>}
             <button onClick={onEdit}>edit</button>
             <button onClick={onClick}>delete</button>
             {/* <article>{itemBody}</article> */}
