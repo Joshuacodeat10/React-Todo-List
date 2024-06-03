@@ -10,7 +10,7 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, e
             
             <p>{itemNumber}</p>
              <input type='checkbox'  defaultChecked={itemStatus}/>
-             {isEditing && <form onSubmit={submitEdit}><input value={editValue} ></input><input type='submit' ></input></form>}
+             {isEditing && <form onSubmit={submitEdit}><input value={editValue} ></input><button type='submit' >submit</button></form>}
             {!isEditing && <h2>{itemTitle}</h2>}
             <button onClick={onEdit}>edit</button>
             <button onClick={onDelete}>delete</button>

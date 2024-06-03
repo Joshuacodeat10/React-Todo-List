@@ -6,6 +6,7 @@ import TodoItem from './components/Todoitem/TodoItem'
 import TodoInput from './components/TodoInput/TodoInput'
 import TodoList from './components/TodoList/TodoList'
 import EditingProvider from './contexts/isEditingContext'
+import { useEditingFunction, useEditingState } from './contexts/isEditingContext'
 export default function App() {
   
   const [todoList, setTodoList] = useState([])
@@ -55,7 +56,8 @@ export default function App() {
           onSubmit={addTodo}
         />
         <TodoList 
-        list={todoList} 
+        list={todoList}
+        submitEdit={() => {alert('hey')}} 
         getId={getId} 
         />
         <h1>{todoList.todoId}ssss</h1>
