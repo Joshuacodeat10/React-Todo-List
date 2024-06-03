@@ -1,7 +1,7 @@
 import './todoitem.css'
 import { useState } from 'react'
 import { useEditingFunction, useEditingState } from '../../contexts/isEditingContext';
-export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, editValue,}){
+export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, editValue,submitEdit}){
     const isEditing = useEditingState();
     const onEdit = useEditingFunction();
     return(
@@ -10,7 +10,7 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, e
             
             <p>{itemNumber}</p>
              <input type='checkbox'  defaultChecked={itemStatus}/>
-             {isEditing && <form ><input value={editValue} ></input><input type='submit' ></input></form>}
+             {isEditing && <form onSubmit={submitEdit}><input value={editValue} ></input><input type='submit' ></input></form>}
             {!isEditing && <h2>{itemTitle}</h2>}
             <button onClick={onEdit}>edit</button>
             <button onClick={onDelete}>delete</button>
