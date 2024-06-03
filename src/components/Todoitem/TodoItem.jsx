@@ -1,17 +1,16 @@
 import './todoitem.css'
 import { useState } from 'react'
-export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, editValue}){
-    const [isEditing, setIsEditing] = useState(false)
-    function onEdit(){
-        setIsEditing(!isEditing)
-    }
+import { useEditingFunction, useEditingState } from '../../contexts/isEditingContext';
+export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, editValue,}){
+    const isEditing = useEditingState();
+    const onEdit = useEditingFunction();
     return(
         <div className="todo-item">
             {/* gi */}
             
             <p>{itemNumber}</p>
              <input type='checkbox'  defaultChecked={itemStatus}/>
-             {isEditing && <input value={editValue} ></input>}
+             {isEditing && <form ><input value={editValue} ></input><input type='submit' ></input></form>}
             {!isEditing && <h2>{itemTitle}</h2>}
             <button onClick={onEdit}>edit</button>
             <button onClick={onDelete}>delete</button>

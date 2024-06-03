@@ -5,6 +5,7 @@ import './App.css'
 import TodoItem from './components/Todoitem/TodoItem'
 import TodoInput from './components/TodoInput/TodoInput'
 import TodoList from './components/TodoList/TodoList'
+import EditingProvider from './contexts/isEditingContext'
 export default function App() {
   
   const [todoList, setTodoList] = useState([])
@@ -35,7 +36,10 @@ export default function App() {
     
     setTodoList(c => [...c, newTodo])
   }
-
+  const [isEditing, setIsEditing] = useState(false)
+    function onEdit(){
+        setIsEditing(!isEditing)
+    }
   
   function getId(id){
     alert(id + 'removed')
@@ -44,10 +48,11 @@ export default function App() {
   }
   return (
     <>
-      <TodoInput onChange={setTitle} value={todoTitle} onSubmit={addTodo}/>
-      <TodoList list={todoList} getId={getId} />
-      <h1>{todoList.todoId}ssss</h1>
-    
+      <EditingProvider>
+        <TodoInput onChange={setTitle} value={todoTitle} onSubmit={addTodo}/>
+        <TodoList list={todoList} getId={getId} />
+        <h1>{todoList.todoId}ssss</h1>
+      </EditingProvider>
     </>
   )
 }
