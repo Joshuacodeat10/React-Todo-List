@@ -4,13 +4,11 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Home from './pages/Home'
 import EditingProvider from './contexts/isEditingContext'
-
 export default function App() {
   return (
     
       <EditingProvider>
         <Home/>
-
       </EditingProvider>
     
   )

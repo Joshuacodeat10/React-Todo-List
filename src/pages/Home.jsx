@@ -7,27 +7,32 @@ import TodoList from '../components/TodoList/TodoList'
 import EditingProvider from '../contexts/isEditingContext'
 import { useEditingFunction, useEditingState } from '../contexts/isEditingContext'
 export default function Home() {
-  const editFunction = useEditingFunction();
+    const value = useEditingValue();
+   
+    // Assign context variable from the isEditing context
+    const editFunction = useEditingFunction();
 
-  const [todoList, setTodoList] = useState([])
-  const [todoTitle, setTodoTitle] = useState('box')
-  function setTitle(event){
-    setTodoTitle(event.target.value)
+    const [todoList, setTodoList] = useState([])
+    const [todoTitle, setTodoTitle] = useState('box');
+  //Function for setting the todo title state to the value of the input
+    function setTitle(event){
+        setTodoTitle(event.target.value)
 
-    console.log(todoTitle)
-  }
+        console.log(todoTitle)
+    }
+  // Function for adding  a new todo
   function addTodo(event){
     
     event.preventDefault();
     let todoId=0;
+    /* This helps to check whether at least one task as been added, then , begin to start the 
+    numbering system by getting the index of the particular object */
     if(todoList[0] !== undefined){
       console.log('yeah')
-    // console.log(Object.keys(todoList[0]))
-
-    todoId = todoList.length;
-    console.log(todoId)
+      todoId = todoList.length;
+      console.log(todoId)
     }
-    // console.log()
+   // Created a todo array so that the new values of the new todo can be added.
     const newTodo = {
       todoId:todoId + 1,
       todoTitle:todoTitle,
@@ -52,6 +57,7 @@ export default function Home() {
     console.log('mei')
     editFunction();
   }
+  
   return (
     <>
         <TodoInput 
@@ -65,7 +71,7 @@ export default function Home() {
         getId={getId} 
         />
         <button onClick={editFunction}>My name</button>
-        <h1>{todoList.todoId}ssss</h1>
+        <h1>{todoList.todoId}ssss{value}</h1>
      
     </>
   )

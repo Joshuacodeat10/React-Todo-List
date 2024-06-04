@@ -19,6 +19,7 @@ export default function TodoList({list, key,itemTitle, itemBody, itemStatus, get
         <TodoItem 
             itemNumber={index + 1}  
             submitEdit={submitEdit} 
+            
             itemTitle={item.todoTitle} 
             onDelete={()=>{deleteTodo(index)}} 
             onitemStatus={item.todoStatus}
