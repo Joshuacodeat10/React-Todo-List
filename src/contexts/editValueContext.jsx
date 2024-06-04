@@ -11,13 +11,15 @@ export function useEditingValueFunction(){
 }
 export default function EditValueProvider({children}){
     const [editValue, setEditValue] = useState('meeeelo')
-    function setEdit(value){
-        setEditValue(value)
-        return value;
+    const values =[
+        editValue,
+        setEditValue
+    ]
+    function setEdit(){
+        alert('jump')
     }
-   
     return(
-        <EditValueStateContext.Provider value={editValue}>
+        <EditValueStateContext.Provider value={values}>
             <EditValueStateFunction.Provider value={setEdit}>
                 {children}
             </EditValueStateFunction.Provider>

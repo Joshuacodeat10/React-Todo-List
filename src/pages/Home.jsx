@@ -6,10 +6,12 @@ import TodoInput from '../components/TodoInput/TodoInput'
 import TodoList from '../components/TodoList/TodoList'
 import EditingProvider from '../contexts/isEditingContext'
 import { useEditingFunction, useEditingState } from '../contexts/isEditingContext'
+import { useEditingValue, useEditingValueFunction } from '../contexts/editValueContext'
 export default function Home() {
-    const value = useEditingValue();
-   
+    
+    const [edit, setEdit] = useEditingValue();
     // Assign context variable from the isEditing context
+    const value = useEditingValue();
     const editFunction = useEditingFunction();
 
     const [todoList, setTodoList] = useState([])
@@ -57,7 +59,9 @@ export default function Home() {
     console.log('mei')
     editFunction();
   }
-  
+  function als(){
+    alert('rohhhck')
+  }
   return (
     <>
         <TodoInput 
@@ -67,7 +71,7 @@ export default function Home() {
         /> 
         <TodoList 
         list={todoList}
-        submitEdit={editTodoItem} 
+        submitEdit={als} 
         getId={getId} 
         />
         <button onClick={editFunction}>My name</button>
