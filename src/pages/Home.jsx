@@ -5,14 +5,10 @@ import TodoItem from '../components/Todoitem/TodoItem'
 import TodoInput from '../components/TodoInput/TodoInput'
 import TodoList from '../components/TodoList/TodoList'
 import EditingProvider from '../contexts/isEditingContext'
-import { useEditingFunction, useEditingState } from '../contexts/isEditingContext'
-import { useEditingValue, useEditingValueFunction } from '../contexts/editValueContext'
+
 export default function Home() {
-    
-    const [edit, setEdit] = useEditingValue();
+   
     // Assign context variable from the isEditing context
-    const value = useEditingValue();
-    const editFunction = useEditingFunction();
 
     const [todoList, setTodoList] = useState([])
     const [todoTitle, setTodoTitle] = useState('box');
@@ -44,11 +40,7 @@ export default function Home() {
     
     setTodoList(c => [...c, newTodo])
   }
-  // const [isEditing, setIsEditing] = useState(false)
-  //   function onEdit(){
-  //       setIsEditing(!isEditing)
-  //   }
-  // This function  grabs the id from the TodoList component and deletes the todo with that Id
+  
   function getId(id){
     alert(id + 'removed') 
     setTodoList(d => d.filter((element, a) => a !== id))
@@ -79,8 +71,6 @@ export default function Home() {
         getId={getId} 
         getEditValue={getEditValue}
         />
-        <button onClick={editFunction}>My name</button>
-        <h1>{todoList.todoId}ssss{value}</h1>
      
     </>
   )
