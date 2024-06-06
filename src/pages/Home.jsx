@@ -62,8 +62,8 @@ export default function Home() {
   function als(val){
     alert(val)
   }
-  function getEditValue(val){
-    let objIndex = todoList.map(p => p.todoId === val ? {...p, todoTitle:'balls'} : p)
+  function getEditValue(val,title){
+    let objIndex = todoList.map(p => p.todoId === val ? {...p, todoTitle: title} : p)
     console.log(objIndex)
   }
   return (

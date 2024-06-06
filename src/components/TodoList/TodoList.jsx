@@ -16,8 +16,8 @@ export default function TodoList({list, key,itemTitle, itemBody, itemStatus, get
       function als(){
         alert('rock')
       }
-      function submitEdit(val){
-        getEditValue(val)
+      function submitEdit(val, title){
+        getEditValue(val, title)
       }
       list.map((item, index) =>{
 
@@ -35,7 +35,7 @@ export default function TodoList({list, key,itemTitle, itemBody, itemStatus, get
         <TodoItem 
             itemNumber={index + 1}  
             setValueTitle={()=>{setEditDetails(item.todoTitle)}}
-            submitEdit={() =>{submitEdit(item.todoId)}} 
+            submitEdit={() =>{submitEdit(item.todoId,editDetails)}} 
             changeEdit={setTitle}
             editValue={editDetails}
             itemTitle={item.todoTitle} 
