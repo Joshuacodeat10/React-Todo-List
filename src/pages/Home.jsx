@@ -63,8 +63,8 @@ export default function Home() {
     alert(val)
   }
   function getEditValue(val,title){
-    let objIndex = todoList.map(p => p.todoId === val ? {...p, todoTitle: title} : p)
-    console.log(objIndex)
+    let newTodo = todoList.map(p => p.todoId === val ? {...p, todoTitle: title} : p)
+    setTodoList(newTodo)
   }
   return (
     <>
