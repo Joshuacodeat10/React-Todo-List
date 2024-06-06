@@ -59,8 +59,8 @@ export default function Home() {
     console.log('mei')
     editFunction();
   }
-  function als(){
-    alert('rohhhck')
+  function als(val){
+    alert(val)
   }
   return (
     <>

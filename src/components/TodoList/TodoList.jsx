@@ -1,10 +1,13 @@
 import TodoItem from "../Todoitem/TodoItem";
+import { useState, useEffect } from "react";
+
 import './todolist.css'
-export default function TodoList({list, key,itemTitle, itemBody, itemStatus, getId, submitEdit}){
+export default function TodoList({list, key,itemTitle, itemBody, itemStatus, getId, submitEdit,changeEdit}){
     // function delete(){
     //     setCars(c => c.filter((_, i) => i !== index));
     // }
     let tod = 1;
+    const [editDetails, setEditDetails] = useState() ;
     function deleteTodo(value){
         
         console.log('My' + value)
@@ -13,6 +16,13 @@ export default function TodoList({list, key,itemTitle, itemBody, itemStatus, get
       function als(){
         alert('rock')
       }
+      function submitEdit(val){
+        alert(val)
+      }
+      list.map((item, index) =>{
+
+      })
+      
   return(
     <div className='todo-list'list={list} >
     {
@@ -21,13 +31,18 @@ export default function TodoList({list, key,itemTitle, itemBody, itemStatus, get
         
         <TodoItem 
             itemNumber={index + 1}  
-            submitEdit={submitEdit} 
-
+            setValueTitle={()=>{setEditDetails(item.todoTitle)}}
+            submitEdit={() =>{submitEdit(item.todoId)}} 
+            changeEdit={()=>{}}
+            editValue={editDetails}
             itemTitle={item.todoTitle} 
             onDelete={()=>{deleteTodo(index)}} 
             onitemStatus={item.todoStatus}
         />
-    </div>)
+       
+    </div>
+    )
+
     }
     </div>
   )

@@ -1,7 +1,7 @@
 import './todoitem.css'
 import { useState } from 'react'
 
-export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, editValue,submitEdit, changeEdit}){
+export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, editValue,submitEdit, changeEdit, onEdit, setValueTitle}){
     // const isEditing = useEditingState();
     // const onEdit = useEditingFunction();
     const [isEditing, setIsEditing]=  useState(false);
@@ -10,15 +10,17 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, e
         event.preventDefault();
     }
     function onEdit(){
+        setValueTitle();
         setIsEditing(!isEditing)
     }
     function aLdenad(){
         alert('me')
     }
    
-    function fullFunc(){
+    function fullFunc(val){
         onEdit();
         submitEdit()
+
     }
     return(
         
@@ -26,8 +28,20 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, e
             {/* gi */}
             
             <p>{itemNumber}</p>
-             <input type='checkbox'  defaultChecked={itemStatus}/>
-             {isEditing && <form onSubmit={fullFunc} ><input value={editValue} onChange={changeEdit}></input><button type='submit' >submit</button></form>}
+             <input 
+             type='checkbox'  
+             defaultChecked={itemStatus}
+             />
+             {isEditing && 
+             <form onSubmit={() =>{fullFunc()}} >
+                <input 
+                    value={editValue} 
+                    onChange={changeEdit}
+                >
+                </input>
+                <button type='submit' >submit</button>
+            </form>}
+            
             {!isEditing && <h2>{itemTitle}</h2>}
             <button onClick={onEdit}>edit</button>
             <button onClick={onDelete}>delete</button>
