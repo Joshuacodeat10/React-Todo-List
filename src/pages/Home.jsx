@@ -4,12 +4,7 @@ import TodoItem from '../components/Todoitem/TodoItem'
 
 import TodoInput from '../components/TodoInput/TodoInput'
 import TodoList from '../components/TodoList/TodoList'
-import EditingProvider from '../contexts/isEditingContext'
-
 export default function Home() {
-   
-    // Assign context variable from the isEditing context
-
     const [todoList, setTodoList] = useState([])
     const [todoTitle, setTodoTitle] = useState('');
   //Function for setting the todo title state to the value of the input
@@ -52,11 +47,10 @@ export default function Home() {
     setTodoList(d => d.filter((element, a) => a !== id))
     console.log(todoList)
   }
-  function editTodoItem(event){
-    event.preventDefault();
-    console.log('mei')
-    editFunction();
-  }
+//   function editTodoItem(event){
+//     event.preventDefault();
+//     editFunction();
+//   }
 
   function getEditValue(val,title){
     let newTodo = todoList.map(p => p.todoId === val ? {...p, todoTitle: title} : p)

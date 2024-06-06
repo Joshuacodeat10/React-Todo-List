@@ -3,22 +3,20 @@ import { useState, useEffect } from "react";
 
 import './todolist.css'
 export default function TodoList({list, key,itemTitle, itemBody, itemStatus, getId, submitEdit,changeEdit, getEditValue}){
-    // function delete(){
-    //     setCars(c => c.filter((_, i) => i !== index));
-    // }
-    let tod = 1;
     const [editDetails, setEditDetails] = useState() ;
     function deleteTodo(value){
         
         console.log('My' + value)
         getId(value)
-      }
-      function submitEdit(val, title){
+    }
+    // Function that collects the id and title of the current todo
+    function submitEdit(val, title){
         getEditValue(val, title)
-      }
-      function setTitle(event){
-        setEditDetails(event.target.value)
-      }
+    }
+    // updates the edit details, which will be submitted
+    function setTitle(event){
+    setEditDetails(event.target.value)
+    }
       
   return(
     <div className='todo-list'list={list} >
