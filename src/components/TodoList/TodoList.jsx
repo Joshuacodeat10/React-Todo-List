@@ -22,6 +22,9 @@ export default function TodoList({list, key,itemTitle, itemBody, itemStatus, get
       list.map((item, index) =>{
 
       })
+      function setTitle(event){
+        setEditDetails(event.target.value)
+      }
       
   return(
     <div className='todo-list'list={list} >
@@ -33,7 +36,7 @@ export default function TodoList({list, key,itemTitle, itemBody, itemStatus, get
             itemNumber={index + 1}  
             setValueTitle={()=>{setEditDetails(item.todoTitle)}}
             submitEdit={() =>{submitEdit(item.todoId)}} 
-            changeEdit={()=>{}}
+            changeEdit={setTitle}
             editValue={editDetails}
             itemTitle={item.todoTitle} 
             onDelete={()=>{deleteTodo(index)}} 
