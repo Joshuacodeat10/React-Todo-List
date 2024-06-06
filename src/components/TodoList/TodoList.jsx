@@ -5,7 +5,6 @@ import './todolist.css'
 export default function TodoList({list, key,itemTitle, itemBody, itemStatus, getId, submitEdit,changeEdit, getEditValue}){
     const [editDetails, setEditDetails] = useState() ;
     function deleteTodo(value){
-        
         console.log('My' + value)
         getId(value)
     }

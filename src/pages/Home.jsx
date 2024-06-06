@@ -14,16 +14,23 @@ export default function Home() {
         console.log(todoTitle)
     }
   // Function for adding  a new todo
+//   const userObj = {
+//     username = "Maria",
+//     email: "maria@mail.com"
+//   }
+  
+//   localStorage.setItem('user', JSON.stringify(userObj))
   function addTodo(event){
     
     event.preventDefault();
     let todoId=0;
-    /* This helps to check whether at least one task as been added, then , begin to start the 
-    numbering system by getting the index of the particular object */
+    // Checks if input is empty
     if(todoTitle === '' ){
         alert('Please input value')
     }
     else{
+    /* This helps to check whether at least one task as been added, then , begin to start the 
+    numbering system by getting the index of the particular object */
         if(todoList[0] !== undefined){
         console.log('yeah')
         todoId = todoList.length;
@@ -37,21 +44,14 @@ export default function Home() {
         todoTitle:todoTitle,
         todoStatus:true,
         }
-        console.log(todoList.todoId)
-        
         setTodoList(c => [...c, newTodo])
     }
   }
-  
+  // gets Id and deletes todo
   function getId(id){
     setTodoList(d => d.filter((element, a) => a !== id))
-    console.log(todoList)
   }
-//   function editTodoItem(event){
-//     event.preventDefault();
-//     editFunction();
-//   }
-
+  // gets id and title, then updates title based on which todo the id belongs to
   function getEditValue(val,title){
     let newTodo = todoList.map(p => p.todoId === val ? {...p, todoTitle: title} : p)
     setTodoList(newTodo)
