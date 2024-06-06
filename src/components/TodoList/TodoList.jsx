@@ -4,10 +4,7 @@ import { useState, useEffect } from "react";
 import './todolist.css'
 export default function TodoList({list, key,itemTitle, itemBody, itemStatus, getId, submitEdit,changeEdit, getEditValue}){
     
-    // const [currentStatus, setCurrentStatus] = useState(true);
-    // function setStatus(){
-    //     setCurrentStatus(!currentStatus)
-    // }
+
     function deleteTodo(value){
         console.log('My' + value)
         getId(value)

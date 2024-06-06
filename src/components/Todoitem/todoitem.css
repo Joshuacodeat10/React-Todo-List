@@ -40,3 +40,7 @@
     font-size:17px;
     overflow-wrap: break-word;
 }
+.underline{
+    text-decoration:line-through;
+
+}
