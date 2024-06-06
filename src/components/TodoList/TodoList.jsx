@@ -13,12 +13,15 @@ export default function TodoList({list, key,itemTitle, itemBody, itemStatus, get
         getId(value)
     }
     // Function that collects the id and title of the current todo
-    function submitEdit(val, title){
-        getEditValue(val, title)
-    }
+    // function submitEdit(val, title){
+    //     getEditValue(val, title)
+    // }
     // updates the edit details, which will be submitted
     function setTitle(event){
     setEditDetails(event.target.value)
+    }
+    function submitEdit(val, title){
+        alert('My' + val + title)
     }
 
       
@@ -33,9 +36,10 @@ export default function TodoList({list, key,itemTitle, itemBody, itemStatus, get
             itemNumber={index + 1}  
             // setValueTitle={()=>{setEditDetails(item.todoTitle)}}
             // submitEdit={() =>{submitEdit(item.todoId,editDetails)}} 
-               submitEdit={''}
+               submitEdit={submitEdit}
             // changeEdit={setTitle}
             // editValue={(event) => {event.target.value}}
+            title={''}
             itemTitle={item.todoTitle} 
             onDelete={()=>{deleteTodo(index)}} 
             onitemStatus={item.todoStatus}

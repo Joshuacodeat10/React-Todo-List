@@ -1,7 +1,7 @@
 import './todoitem.css'
 import { useState } from 'react'
 
-export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, editValue,submitEdit, changeEdit, onEdit, setValueTitle, checkBoxChange}){
+export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, editValue,submitEdit, changeEdit, onEdit, setValueTitle, checkBoxChange, title}){
     const [editDetails, setEditDetails] = useState('boool') ;
     const [isEditing, setIsEditing]=  useState(false);
     const [currentStatus, setCurrentStatus] = useState(true);
@@ -17,10 +17,12 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, e
         setIsEditing(!isEditing)
     }
  
-    function fullFunc(val){
+    function fullFunc(val,title){
+
+        console.log(val)
         onEdit();
-        submitEdit()
-        
+        submitEdit(val,title)
+       
     }
     function changeStatus(){
        
@@ -41,7 +43,7 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, e
              onClick={setStatus}
              />
              {isEditing && 
-             <form className='edit-form'onSubmit={() =>{fullFunc()}} >
+             <form className='edit-form'onSubmit={(event) =>{fullFunc(editDetails, title)}} >
                 <textarea
                     value={editDetails} 
                     onChange={setTitle}
