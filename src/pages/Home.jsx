@@ -45,7 +45,7 @@ export default function Home() {
     setTodoList(d => d.filter((element, a) => a !== id))
   }
   // gets id and title, then updates title based on which todo the id belongs to
-  function getEditValue(val,title){
+  function getEditValue(title, val){
     let newTodo = todoList.map(p => p.todoId === val ? {...p, todoTitle: title} : p)
     setTodoList(newTodo)
   }
