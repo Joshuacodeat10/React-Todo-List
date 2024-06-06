@@ -30,6 +30,8 @@ export default function Home() {
       todoId = todoList.length;
       console.log(todoId)
     }
+
+    
    // Created a todo array so that the new values of the new todo can be added.
     const newTodo = {
       todoId:todoId + 1,
@@ -42,7 +44,6 @@ export default function Home() {
   }
   
   function getId(id){
-    alert(id + 'removed') 
     setTodoList(d => d.filter((element, a) => a !== id))
     console.log(todoList)
   }
@@ -51,9 +52,7 @@ export default function Home() {
     console.log('mei')
     editFunction();
   }
-  function als(val){
-    alert(val)
-  }
+
   function getEditValue(val,title){
     let newTodo = todoList.map(p => p.todoId === val ? {...p, todoTitle: title} : p)
     setTodoList(newTodo)
@@ -67,7 +66,6 @@ export default function Home() {
         /> 
         <TodoList 
         list={todoList}
-        submitEdit={als} 
         getId={getId} 
         getEditValue={getEditValue}
         />

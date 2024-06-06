@@ -13,15 +13,9 @@ export default function TodoList({list, key,itemTitle, itemBody, itemStatus, get
         console.log('My' + value)
         getId(value)
       }
-      function als(){
-        alert('rock')
-      }
       function submitEdit(val, title){
         getEditValue(val, title)
       }
-      list.map((item, index) =>{
-
-      })
       function setTitle(event){
         setEditDetails(event.target.value)
       }

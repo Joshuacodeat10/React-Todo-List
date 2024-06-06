@@ -2,8 +2,7 @@ import './todoitem.css'
 import { useState } from 'react'
 
 export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, editValue,submitEdit, changeEdit, onEdit, setValueTitle}){
-    // const isEditing = useEditingState();
-    // const onEdit = useEditingFunction();
+
     const [isEditing, setIsEditing]=  useState(false);
     
     function Olpox(event){
@@ -13,10 +12,7 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, e
         setValueTitle();
         setIsEditing(!isEditing)
     }
-    function aLdenad(){
-        alert('me')
-    }
-   
+ 
     function fullFunc(val){
         onEdit();
         submitEdit()
