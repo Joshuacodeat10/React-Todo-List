@@ -23,7 +23,7 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, e
         <div className="todo-item" >
             {/* gi */}
             
-            <p>{itemNumber}</p>
+            <p className='number'>{itemNumber}</p>
              <input 
              type='checkbox'  
              defaultChecked={itemStatus}
@@ -38,8 +38,8 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, e
                 <button type='submit' >submit</button>
             </form>}
 
-            {!isEditing && <h2>{itemTitle}</h2>}
-            <button onClick={onEdit}>edit</button>
+            {!isEditing && <div><h2 className='item-title'>{itemTitle}</h2></div>}
+            {! isEditing && <button onClick={onEdit}>edit</button> }
             <button onClick={onDelete}>delete</button>
             {/* <article>{itemBody}</article> */}
         </div>

@@ -11,7 +11,7 @@ export default function Home() {
     // Assign context variable from the isEditing context
 
     const [todoList, setTodoList] = useState([])
-    const [todoTitle, setTodoTitle] = useState('box');
+    const [todoTitle, setTodoTitle] = useState('');
   //Function for setting the todo title state to the value of the input
     function setTitle(event){
         setTodoTitle(event.target.value)
@@ -25,22 +25,27 @@ export default function Home() {
     let todoId=0;
     /* This helps to check whether at least one task as been added, then , begin to start the 
     numbering system by getting the index of the particular object */
-    if(todoList[0] !== undefined){
-      console.log('yeah')
-      todoId = todoList.length;
-      console.log(todoId)
+    if(todoTitle === '' ){
+        alert('Please input value')
     }
+    else{
+        if(todoList[0] !== undefined){
+        console.log('yeah')
+        todoId = todoList.length;
+        console.log(todoId)
+        }
 
-    
-   // Created a todo array so that the new values of the new todo can be added.
-    const newTodo = {
-      todoId:todoId + 1,
-      todoTitle:todoTitle,
-      todoStatus:true,
+
+    // Created a todo array so that the new values of the new todo can be added.
+        const newTodo = {
+        todoId:todoId + 1,
+        todoTitle:todoTitle,
+        todoStatus:true,
+        }
+        console.log(todoList.todoId)
+        
+        setTodoList(c => [...c, newTodo])
     }
-    console.log(todoList.todoId)
-    
-    setTodoList(c => [...c, newTodo])
   }
   
   function getId(id){
@@ -57,6 +62,7 @@ export default function Home() {
     let newTodo = todoList.map(p => p.todoId === val ? {...p, todoTitle: title} : p)
     setTodoList(newTodo)
   }
+
   return (
     <>
         <TodoInput 

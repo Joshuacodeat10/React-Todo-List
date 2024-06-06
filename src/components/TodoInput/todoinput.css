@@ -2,12 +2,14 @@
 input[type=text]{
     border-radius:7px;
     font-family:Poppins;
-    padding-left:5%;
+    
     width:100%;
-    height:34px;
-    font-size:15px;
+    height:54px;
+    font-size:24px;
     border:1px solid rgb(210, 210, 210);
-    text-align:left;
+    
+    text-align:center;
+
     box-shadow:1px 1px 3px gray;
 }
 input[type=text]:focus{
@@ -29,8 +31,8 @@ input[type=submit]{
     transition:0.3s ease-in-out;
 }
 input[type=submit]:hover{
-    color:black;
-    font-size:33px;
+    color:rgb(64, 62, 62);
+    font-size:30px;
     cursor:pointer;
     text-shadow:1px 1px 1px gray;
 }
@@ -39,7 +41,7 @@ input[type=submit]:hover{
     display:flex;
     justify-content: center;
     align-items: center;
+    width:100%;
     /* width:250px; */
-    border:1px solid red;
     /* background-color: red; */
 }

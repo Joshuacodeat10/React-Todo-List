@@ -2,15 +2,28 @@
     display:flex;
     justify-content: center;
     align-items:center;
+    margin-top:20px;
     padding:0px 20px 0px 20px;
-    gap:20px;
+    gap:30px;
     border:1px solid black;
     border-radius: 10px;
+    width:100%;
     box-shadow:1px 1px 2px black;
+    
 }
 .todo-item button{
     background-color: rgb(133, 15, 15);
     color:white;
     padding:5px;
     border:none;
+}
+.todo-item .number{
+    font-size:17px;
+    font-weight:600;
+    font-family: Poppins;
+}
+.todo-item .item-title{
+    max-width: 250px;
+   
+    overflow-wrap: break-word;
 }
