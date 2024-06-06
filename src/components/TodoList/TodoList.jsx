@@ -39,7 +39,7 @@ export default function TodoList({list, key,itemTitle, itemBody, itemStatus, get
                submitEdit={submitEdit}
             // changeEdit={setTitle}
             // editValue={(event) => {event.target.value}}
-            title={''}
+            title={item.todoTitle}
             itemTitle={item.todoTitle} 
             onDelete={()=>{deleteTodo(index)}} 
             onitemStatus={item.todoStatus}
