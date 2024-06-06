@@ -27,6 +27,15 @@
     font-size:17px;
     overflow-wrap: break-word;
 }
-.edit-form input{
+.edit-form{
+    display:flex;
+    justify-content: center;
+}
+.edit-form textarea{
     font-size:17px;
+    height:20px;
+    border:1px solid silver;
+    resize:none;
+    font-size:17px;
+    overflow-wrap: break-word;
 }
