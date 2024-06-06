@@ -24,6 +24,9 @@
 }
 .todo-item .item-title{
     max-width: 250px;
-   
+    font-size:17px;
     overflow-wrap: break-word;
+}
+.edit-form input{
+    font-size:17px;
 }

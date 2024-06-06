@@ -29,16 +29,16 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, e
              defaultChecked={itemStatus}
              />
              {isEditing && 
-             <form onSubmit={() =>{fullFunc()}} >
-                <input 
+             <form className='edit-form'onSubmit={() =>{fullFunc()}} >
+                <textarea
                     value={editValue} 
                     onChange={changeEdit}
-                >
-                </input>
+                />
+                
                 <button type='submit' >submit</button>
             </form>}
 
-            {!isEditing && <div><h2 className='item-title'>{itemTitle}</h2></div>}
+            {!isEditing && <div onClick={onEdit}><p className='item-title'>{itemTitle}</p></div>}
             {! isEditing && <button onClick={onEdit}>edit</button> }
             <button onClick={onDelete}>delete</button>
             {/* <article>{itemBody}</article> */}
