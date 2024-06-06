@@ -48,7 +48,7 @@ export default function Home() {
   //   function onEdit(){
   //       setIsEditing(!isEditing)
   //   }
-  
+  // This function  grabs the id from the TodoList component and deletes the todo with that Id
   function getId(id){
     alert(id + 'removed') 
     setTodoList(d => d.filter((element, a) => a !== id))
@@ -62,10 +62,11 @@ export default function Home() {
   function als(val){
     alert(val)
   }
+ 
   return (
     <>
         <TodoInput 
-          onChange={setTitle} 
+          onChange={setTitle}
           value={todoTitle} 
           onSubmit={addTodo}
         /> 
@@ -73,6 +74,7 @@ export default function Home() {
         list={todoList}
         submitEdit={als} 
         getId={getId} 
+        getEditValue={getEditValue}
         />
         <button onClick={editFunction}>My name</button>
         <h1>{todoList.todoId}ssss{value}</h1>

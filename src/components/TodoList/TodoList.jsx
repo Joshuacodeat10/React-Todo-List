@@ -2,7 +2,7 @@ import TodoItem from "../Todoitem/TodoItem";
 import { useState, useEffect } from "react";
 
 import './todolist.css'
-export default function TodoList({list, key,itemTitle, itemBody, itemStatus, getId, submitEdit,changeEdit}){
+export default function TodoList({list, key,itemTitle, itemBody, itemStatus, getId, submitEdit,changeEdit, getEditValue}){
     // function delete(){
     //     setCars(c => c.filter((_, i) => i !== index));
     // }
@@ -17,7 +17,7 @@ export default function TodoList({list, key,itemTitle, itemBody, itemStatus, get
         alert('rock')
       }
       function submitEdit(val){
-        alert(val)
+        getEditValue(val)
       }
       list.map((item, index) =>{
 

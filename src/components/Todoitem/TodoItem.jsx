@@ -20,7 +20,7 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, e
     function fullFunc(val){
         onEdit();
         submitEdit()
-
+        
     }
     return(
         
@@ -41,7 +41,7 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, e
                 </input>
                 <button type='submit' >submit</button>
             </form>}
-            
+
             {!isEditing && <h2>{itemTitle}</h2>}
             <button onClick={onEdit}>edit</button>
             <button onClick={onDelete}>delete</button>
