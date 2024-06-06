@@ -1,9 +1,9 @@
 import './todoitem.css'
 import { useState } from 'react'
 
-export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, editValue,submitEdit, changeEdit, onEdit, setValueTitle, checkBoxChange, id}){
+export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, editValue,submitEdit, changeEdit, onEdit, setValueTitle, checkBoxChange, id, title}){
     // state variable for setting the editDetails
-    const [editDetails, setEditDetails] = useState('boool') ;
+    const [editDetails, setEditDetails] = useState(itemTitle) ;
     // state variable for setting the isEditing variable
     const [isEditing, setIsEditing]=  useState(false);
     // Stores the status of the variable whether it is completed or not
