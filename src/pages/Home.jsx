@@ -13,13 +13,6 @@ export default function Home() {
 
         console.log(todoTitle)
     }
-  // Function for adding  a new todo
-//   const userObj = {
-//     username = "Maria",
-//     email: "maria@mail.com"
-//   }
-  
-//   localStorage.setItem('user', JSON.stringify(userObj))
   function addTodo(event){
     
     event.preventDefault();

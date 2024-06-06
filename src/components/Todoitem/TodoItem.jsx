@@ -2,14 +2,18 @@ import './todoitem.css'
 import { useState } from 'react'
 
 export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, editValue,submitEdit, changeEdit, onEdit, setValueTitle, checkBoxChange}){
-
+    const [editDetails, setEditDetails] = useState('boool') ;
     const [isEditing, setIsEditing]=  useState(false);
+    const [currentStatus, setCurrentStatus] = useState(true);
+    function setStatus(){
+        setCurrentStatus(!currentStatus)
+    }
     
     function Olpox(event){
         event.preventDefault();
     }
     function onEdit(){
-        setValueTitle();
+        // setValueTitle();
         setIsEditing(!isEditing)
     }
  
@@ -19,8 +23,12 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, e
         
     }
     function changeStatus(){
-        checkBoxChange()
+       
     }
+    function setTitle(event){
+        setEditDetails(event.target.value)
+        }
+    
     return(
         
         <div className="todo-item" >
@@ -29,14 +37,14 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, e
             <p className='number'>{itemNumber}</p>
              <input 
              type='checkbox'  
-             defaultChecked={itemStatus}
-             onClick={changeStatus}
+             defaultChecked={currentStatus}
+             onClick={setStatus}
              />
              {isEditing && 
              <form className='edit-form'onSubmit={() =>{fullFunc()}} >
                 <textarea
-                    value={editValue} 
-                    onChange={changeEdit}
+                    value={editDetails} 
+                    onChange={setTitle}
                 />
                 
                 <button type='submit' >submit</button>

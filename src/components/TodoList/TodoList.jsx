@@ -3,8 +3,11 @@ import { useState, useEffect } from "react";
 
 import './todolist.css'
 export default function TodoList({list, key,itemTitle, itemBody, itemStatus, getId, submitEdit,changeEdit, getEditValue}){
-    const [editDetails, setEditDetails] = useState() ;
-    const [itemDetails, setItemDetails] = useState(true);
+    
+    // const [currentStatus, setCurrentStatus] = useState(true);
+    // function setStatus(){
+    //     setCurrentStatus(!currentStatus)
+    // }
     function deleteTodo(value){
         console.log('My' + value)
         getId(value)
@@ -22,22 +25,23 @@ export default function TodoList({list, key,itemTitle, itemBody, itemStatus, get
   return(
     <div className='todo-list'list={list} >
     {
-    list.map((item, index) => 
+    list.map((item, index) => {
+        return(
     <div key={item.todoId}>
         
         <TodoItem 
             itemNumber={index + 1}  
-            setValueTitle={()=>{setEditDetails(item.todoTitle)}}
-            submitEdit={() =>{submitEdit(item.todoId,editDetails)}} 
-            changeEdit={setTitle}
-            editValue={editDetails}
+            // setValueTitle={()=>{setEditDetails(item.todoTitle)}}
+            // submitEdit={() =>{submitEdit(item.todoId,editDetails)}} 
+               submitEdit={''}
+            // changeEdit={setTitle}
+            // editValue={(event) => {event.target.value}}
             itemTitle={item.todoTitle} 
             onDelete={()=>{deleteTodo(index)}} 
             onitemStatus={item.todoStatus}
-            itemStatus={true}
         />
        
-    </div>
+    </div>)}
     )
 
     }
