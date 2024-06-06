@@ -2,21 +2,15 @@ import TodoItem from "../Todoitem/TodoItem";
 import { useState, useEffect } from "react";
 
 import './todolist.css'
-export default function TodoList({list, key,itemTitle, itemBody, itemStatus, getId, submitEdit,changeEdit, getEditValue}){
+export default function TodoList({list,getId, submitEdit, getEditValue}){
     
-
+    // This function gets the todo Id so that todos can be deleted in the Home page
     function deleteTodo(value){
         console.log('My' + value)
         getId(value)
     }
-    // Function that collects the id and title of the current todo
-    // function submitEdit(val, title){
-    //     getEditValue(val, title)
-    // }
-    // updates the edit details, which will be submitted
-    function setTitle(event){
-    setEditDetails(event.target.value)
-    }
+    /* submitEdit function is for passing this values down to the Home page, 
+    so that required state title updates can be made */
     function submitEdit(val, id){
         getEditValue(val, id)
     }
@@ -30,12 +24,8 @@ export default function TodoList({list, key,itemTitle, itemBody, itemStatus, get
     <div key={item.todoId}>
         
         <TodoItem 
-            itemNumber={index + 1}  
-            // setValueTitle={()=>{setEditDetails(item.todoTitle)}}
-            // submitEdit={() =>{submitEdit(item.todoId,editDetails)}} 
-               submitEdit={submitEdit}
-            // changeEdit={setTitle}
-            // editValue={(event) => {event.target.value}}
+            itemNumber={index + 1}   
+            submitEdit={submitEdit}
             id={item.todoId}
             itemTitle={item.todoTitle} 
             onDelete={()=>{deleteTodo(index)}} 

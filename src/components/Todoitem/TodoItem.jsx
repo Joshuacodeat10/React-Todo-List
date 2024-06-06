@@ -1,7 +1,7 @@
 import './todoitem.css'
 import { useState } from 'react'
 
-export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, editValue,submitEdit, changeEdit, onEdit, setValueTitle, checkBoxChange, id, title}){
+export default function TodoItem({itemNumber,itemTitle,  onDelete, submitEdit, onEdit,  id, title}){
     // state variable for setting the editDetails
     const [editDetails, setEditDetails] = useState(itemTitle) ;
     // state variable for setting the isEditing variable
@@ -25,9 +25,7 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, e
         submitEdit(val,id)
        
     }
-    function changeStatus(){
-       
-    }
+
     //sets editdetails to input value
     function setTitle(event){
         setEditDetails(event.target.value)
