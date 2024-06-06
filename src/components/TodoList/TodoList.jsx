@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import './todolist.css'
 export default function TodoList({list, key,itemTitle, itemBody, itemStatus, getId, submitEdit,changeEdit, getEditValue}){
     const [editDetails, setEditDetails] = useState() ;
+    const [itemDetails, setItemDetails] = useState(true);
     function deleteTodo(value){
         console.log('My' + value)
         getId(value)
@@ -16,6 +17,7 @@ export default function TodoList({list, key,itemTitle, itemBody, itemStatus, get
     function setTitle(event){
     setEditDetails(event.target.value)
     }
+
       
   return(
     <div className='todo-list'list={list} >
@@ -32,6 +34,7 @@ export default function TodoList({list, key,itemTitle, itemBody, itemStatus, get
             itemTitle={item.todoTitle} 
             onDelete={()=>{deleteTodo(index)}} 
             onitemStatus={item.todoStatus}
+            itemStatus={true}
         />
        
     </div>

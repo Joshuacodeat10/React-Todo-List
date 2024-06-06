@@ -1,7 +1,7 @@
 import './todoitem.css'
 import { useState } from 'react'
 
-export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, editValue,submitEdit, changeEdit, onEdit, setValueTitle}){
+export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, editValue,submitEdit, changeEdit, onEdit, setValueTitle, checkBoxChange}){
 
     const [isEditing, setIsEditing]=  useState(false);
     
@@ -18,6 +18,9 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, e
         submitEdit()
         
     }
+    function changeStatus(){
+        checkBoxChange()
+    }
     return(
         
         <div className="todo-item" >
@@ -27,6 +30,7 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, e
              <input 
              type='checkbox'  
              defaultChecked={itemStatus}
+             onClick={changeStatus}
              />
              {isEditing && 
              <form className='edit-form'onSubmit={() =>{fullFunc()}} >
