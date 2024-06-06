@@ -7,7 +7,7 @@ export default function TodoItem({itemNumber,itemTitle,  itemStatus, onDelete, e
     // state variable for setting the isEditing variable
     const [isEditing, setIsEditing]=  useState(false);
     // Stores the status of the variable whether it is completed or not
-    const [currentStatus, setCurrentStatus] = useState(true);
+    const [currentStatus, setCurrentStatus] = useState(false);
     // Toggles the check mark from checked to uncheck
     function setStatus(){
         setCurrentStatus(!currentStatus)
